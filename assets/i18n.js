@@ -5,7 +5,7 @@ window.I18N = {
   fallback: "en",
 
   es: {
-    "meta.desc": "Limpieza profunda, regular, de mudanza y post-construcción en todo Maryland. Con licencia y seguro. Estimados gratis: (240) 408-6532.",
+    "meta.desc": "Limpieza profunda, regular, de mudanza y post-construcción en todo Maryland: Silver Spring, Rockville, Gaithersburg y más. Con licencia y seguro. Estimados gratis: (240) 408-6532.",
     "a11y.skip": "Saltar al contenido",
     "a11y.lang": "Idioma",
     "a11y.wipe": "Arrastra para limpiar la superficie",
@@ -178,7 +178,7 @@ window.I18N = {
   },
 
   en: {
-    "meta.desc": "Deep, regular, move-in/move-out and post-construction cleaning across Maryland. Licensed and insured. Free estimates: (240) 408-6532.",
+    "meta.desc": "Deep, regular, move-in/move-out and post-construction cleaning across Maryland: Silver Spring, Rockville, Gaithersburg and more. Licensed and insured. Free estimates: (240) 408-6532.",
     "a11y.skip": "Skip to content",
     "a11y.lang": "Language",
     "a11y.wipe": "Drag to clean the surface",
