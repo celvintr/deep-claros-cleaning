@@ -11,6 +11,9 @@ window.I18N = {
     "a11y.wipe": "Arrastra para limpiar la superficie",
     "a11y.menu": "Abrir menú",
     "a11y.close": "Cerrar menú",
+    "a11y.prev": "Foto anterior",
+    "a11y.next": "Foto siguiente",
+    "a11y.slides": "Fotos del inicio",
 
     "nav.services": "Servicios",
     "nav.included": "Qué incluye",
@@ -73,6 +76,12 @@ window.I18N = {
     "svc.maint.d": "Rotación entre inquilinos, áreas comunes y oficinas, con horario fijo y una sola factura.",
     "svc.ask.t": "¿No sabes cuál necesitas?",
     "svc.ask.d": "Cuéntanos cómo está el lugar y te decimos cuál corresponde. El estimado no cuesta nada.",
+
+    "ba.eyebrow": "La prueba está en el piso",
+    "ba.h2": "Mira la diferencia.",
+    "ba.p": "Arrastra la línea: a un lado, el polvo y el desgaste; al otro, la misma habitación después de nosotros.",
+    "ba.before": "Antes",
+    "ba.after": "Después",
 
     "inc.eyebrow": "Cuarto por cuarto",
     "inc.h2": "Lo que se hace en cada espacio.",
@@ -175,6 +184,9 @@ window.I18N = {
     "a11y.wipe": "Drag to clean the surface",
     "a11y.menu": "Open menu",
     "a11y.close": "Close menu",
+    "a11y.prev": "Previous photo",
+    "a11y.next": "Next photo",
+    "a11y.slides": "Home photos",
 
     "nav.services": "Services",
     "nav.included": "What's included",
@@ -237,6 +249,12 @@ window.I18N = {
     "svc.maint.d": "Tenant turnovers, common areas and offices, on a fixed schedule and a single invoice.",
     "svc.ask.t": "Not sure which one you need?",
     "svc.ask.d": "Tell us the condition of the place and we'll tell you which service fits. The estimate costs nothing.",
+
+    "ba.eyebrow": "The proof is on the floor",
+    "ba.h2": "See the difference.",
+    "ba.p": "Drag the line: on one side the dust and wear; on the other, the same room after us.",
+    "ba.before": "Before",
+    "ba.after": "After",
 
     "inc.eyebrow": "Room by room",
     "inc.h2": "What gets done in each space.",

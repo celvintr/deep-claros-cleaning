@@ -56,72 +56,89 @@
     b.addEventListener("click", function () { apply(b.dataset.lang); });
   });
 
-  /* ═══ 2. La línea de limpieza ═════════════════════════ */
-  var hero = $(".hero");
-  var grip = $("#grip");
-  var hint = $("#wipeHint");
-  var pos = 96;
-  var touched = false;
+  /* ═══ 2. Slider del hero ══════════════════════════════ */
+  var slider = $("#slider");
+  if (slider) {
+    var slides = $$(".slide", slider);
+    var dotsBox = $("#dots");
+    var idx = 0, timer = null, DELAY = 5200;
 
-  function setWipe(v) {
-    pos = Math.max(0, Math.min(100, v));
-    hero.style.setProperty("--wipe", pos + "%");
-    grip.setAttribute("aria-valuenow", Math.round(pos));
-  }
+    // construir los puntos
+    slides.forEach(function (_, i) {
+      var b = document.createElement("button");
+      b.type = "button";
+      b.setAttribute("role", "tab");
+      b.setAttribute("aria-selected", String(i === 0));
+      b.addEventListener("click", function () { go(i, true); });
+      dotsBox.appendChild(b);
+    });
+    var dots = $$("button", dotsBox);
 
-  function fromEvent(e) {
-    var r = hero.getBoundingClientRect();
-    setWipe(((e.clientX - r.left) / r.width) * 100);
-  }
-
-  function markTouched() {
-    if (touched) return;
-    touched = true;
-    if (hint) hint.classList.add("is-off");
-  }
-
-  var dragging = false;
-  hero.addEventListener("pointerdown", function (e) {
-    var hit = e.target.closest("a, input, select, textarea");
-    if (hit) return;                       // los enlaces siguen siendo enlaces
-    dragging = true;
-    markTouched();
-    hero.setPointerCapture(e.pointerId);
-    fromEvent(e);
-  });
-  hero.addEventListener("pointermove", function (e) {
-    if (dragging) { e.preventDefault(); fromEvent(e); }
-  });
-  ["pointerup", "pointercancel"].forEach(function (ev) {
-    hero.addEventListener(ev, function () { dragging = false; });
-  });
-
-  grip.addEventListener("keydown", function (e) {
-    var step = e.shiftKey ? 10 : 3;
-    if (e.key === "ArrowLeft" || e.key === "ArrowDown") { setWipe(pos - step); markTouched(); e.preventDefault(); }
-    else if (e.key === "ArrowRight" || e.key === "ArrowUp") { setWipe(pos + step); markTouched(); e.preventDefault(); }
-    else if (e.key === "Home") { setWipe(0); markTouched(); e.preventDefault(); }
-    else if (e.key === "End") { setWipe(100); markTouched(); e.preventDefault(); }
-  });
-
-  // en móvil el corte es vertical: dejamos más limpio para no partir los botones
-  var restPos = function () { return window.innerWidth <= 720 ? 60 : 40; };
-
-  // pasada de demostración al cargar: la superficie se limpia sola una vez
-  function demo() {
-    if (reduce) { setWipe(restPos()); return; }
-    var start = null, from = 96, to = restPos(), ms = 1600;
-    function frame(ts) {
-      if (start === null) start = ts;
-      var p = Math.min(1, (ts - start) / ms);
-      var e = 1 - Math.pow(1 - p, 3);              // desaceleración
-      setWipe(from + (to - from) * e);
-      if (p < 1 && !dragging) requestAnimationFrame(frame);
+    function paint() {
+      slides.forEach(function (s, i) { s.classList.toggle("is-active", i === idx); });
+      dots.forEach(function (d, i) { d.setAttribute("aria-selected", String(i === idx)); });
     }
-    setWipe(from);
-    setTimeout(function () { requestAnimationFrame(frame); }, 420);
+    function go(n, manual) {
+      idx = (n + slides.length) % slides.length;
+      paint();
+      if (manual) restart();
+    }
+    function next() { go(idx + 1); }
+    function start() { if (!reduce && !timer) timer = setInterval(next, DELAY); }
+    function stop() { if (timer) { clearInterval(timer); timer = null; } }
+    function restart() { stop(); start(); }
+
+    $$("[data-slide]", $(".hero")).forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        go(idx + (btn.dataset.slide === "next" ? 1 : -1), true);
+      });
+    });
+
+    var heroEl = $(".hero");
+    heroEl.addEventListener("mouseenter", stop);
+    heroEl.addEventListener("mouseleave", start);
+    document.addEventListener("visibilitychange", function () {
+      if (document.hidden) stop(); else start();
+    });
+
+    paint();
+    start();
   }
-  demo();
+
+  /* ═══ 2b. Antes / después (arrastre) ══════════════════ */
+  var ba = $("#ba");
+  if (ba) {
+    var baGrip = $("#baGrip");
+    var baPos = 50;
+    var baDrag = false;
+
+    function setBa(v) {
+      baPos = Math.max(0, Math.min(100, v));
+      ba.style.setProperty("--wipe", baPos + "%");
+      baGrip.setAttribute("aria-valuenow", Math.round(baPos));
+    }
+    function baFrom(e) {
+      var r = ba.getBoundingClientRect();
+      setBa(((e.clientX - r.left) / r.width) * 100);
+    }
+    ba.addEventListener("pointerdown", function (e) {
+      baDrag = true; ba.setPointerCapture(e.pointerId); baFrom(e);
+    });
+    ba.addEventListener("pointermove", function (e) {
+      if (baDrag) { e.preventDefault(); baFrom(e); }
+    });
+    ["pointerup", "pointercancel"].forEach(function (ev) {
+      ba.addEventListener(ev, function () { baDrag = false; });
+    });
+    baGrip.addEventListener("keydown", function (e) {
+      var step = e.shiftKey ? 10 : 4;
+      if (e.key === "ArrowLeft" || e.key === "ArrowDown") { setBa(baPos - step); e.preventDefault(); }
+      else if (e.key === "ArrowRight" || e.key === "ArrowUp") { setBa(baPos + step); e.preventDefault(); }
+      else if (e.key === "Home") { setBa(0); e.preventDefault(); }
+      else if (e.key === "End") { setBa(100); e.preventDefault(); }
+    });
+    setBa(50);
+  }
 
   /* ═══ 2b. Menú móvil (drawer) ═════════════════════════ */
   var burger = $("#burger");
