@@ -105,40 +105,73 @@
     start();
   }
 
-  /* ═══ 2b. Antes / después (arrastre) ══════════════════ */
-  var ba = $("#ba");
-  if (ba) {
-    var baGrip = $("#baGrip");
-    var baPos = 50;
-    var baDrag = false;
+  /* ═══ 2b. Antes / después (carrusel + arrastre) ═══════ */
+  var bacar = $("#bacar");
+  if (bacar) {
+    // 2b.1 — arrastre independiente por cada slide
+    $$(".baslide", bacar).forEach(function (slide) {
+      var grip = $(".ba__grip", slide);
+      var pos = 50, drag = false;
+      function set(v) {
+        pos = Math.max(0, Math.min(100, v));
+        slide.style.setProperty("--wipe", pos + "%");
+        grip.setAttribute("aria-valuenow", Math.round(pos));
+      }
+      function from(e) {
+        var r = slide.getBoundingClientRect();
+        set(((e.clientX - r.left) / r.width) * 100);
+      }
+      slide.addEventListener("pointerdown", function (e) {
+        drag = true; slide.setPointerCapture(e.pointerId); from(e);
+      });
+      slide.addEventListener("pointermove", function (e) {
+        if (drag) { e.preventDefault(); from(e); }
+      });
+      ["pointerup", "pointercancel"].forEach(function (ev) {
+        slide.addEventListener(ev, function () { drag = false; });
+      });
+      grip.addEventListener("keydown", function (e) {
+        var step = e.shiftKey ? 10 : 4;
+        if (e.key === "ArrowLeft" || e.key === "ArrowDown") { set(pos - step); e.preventDefault(); }
+        else if (e.key === "ArrowRight" || e.key === "ArrowUp") { set(pos + step); e.preventDefault(); }
+        else if (e.key === "Home") { set(0); e.preventDefault(); }
+        else if (e.key === "End") { set(100); e.preventDefault(); }
+      });
+      set(50);
+    });
 
-    function setBa(v) {
-      baPos = Math.max(0, Math.min(100, v));
-      ba.style.setProperty("--wipe", baPos + "%");
-      baGrip.setAttribute("aria-valuenow", Math.round(baPos));
+    // 2b.2 — navegación del carrusel (flechas + puntos)
+    var baSlides = $$(".baslide", bacar);
+    var baDotsBox = $("#baDots");
+    var baIdx = 0;
+
+    baSlides.forEach(function (_, i) {
+      var b = document.createElement("button");
+      b.type = "button"; b.setAttribute("role", "tab");
+      b.setAttribute("aria-selected", String(i === 0));
+      b.addEventListener("click", function () { baGo(i); });
+      baDotsBox.appendChild(b);
+    });
+    var baDots = $$("button", baDotsBox);
+
+    function baGo(n) {
+      baIdx = (n + baSlides.length) % baSlides.length;
+      baSlides.forEach(function (s, i) { s.classList.toggle("is-active", i === baIdx); });
+      baDots.forEach(function (d, i) { d.setAttribute("aria-selected", String(i === baIdx)); });
     }
-    function baFrom(e) {
-      var r = ba.getBoundingClientRect();
-      setBa(((e.clientX - r.left) / r.width) * 100);
-    }
-    ba.addEventListener("pointerdown", function (e) {
-      baDrag = true; ba.setPointerCapture(e.pointerId); baFrom(e);
+    $$("[data-ba]", bacar).forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        baGo(baIdx + (btn.dataset.ba === "next" ? 1 : -1));
+      });
     });
-    ba.addEventListener("pointermove", function (e) {
-      if (baDrag) { e.preventDefault(); baFrom(e); }
-    });
-    ["pointerup", "pointercancel"].forEach(function (ev) {
-      ba.addEventListener(ev, function () { baDrag = false; });
-    });
-    baGrip.addEventListener("keydown", function (e) {
-      var step = e.shiftKey ? 10 : 4;
-      if (e.key === "ArrowLeft" || e.key === "ArrowDown") { setBa(baPos - step); e.preventDefault(); }
-      else if (e.key === "ArrowRight" || e.key === "ArrowUp") { setBa(baPos + step); e.preventDefault(); }
-      else if (e.key === "Home") { setBa(0); e.preventDefault(); }
-      else if (e.key === "End") { setBa(100); e.preventDefault(); }
-    });
-    setBa(50);
   }
+
+  /* ═══ 2c. Un solo video a la vez ══════════════════════ */
+  $$(".vid video").forEach(function (v) {
+    v.addEventListener("play", function () {
+      $$(".vid video").forEach(function (o) { if (o !== v) o.pause(); });
+    });
+  });
 
   /* ═══ 2b. Menú móvil (drawer) ═════════════════════════ */
   var burger = $("#burger");

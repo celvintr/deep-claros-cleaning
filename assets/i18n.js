@@ -79,9 +79,10 @@ window.I18N = {
 
     "ba.eyebrow": "Trabajo real, sin filtros",
     "ba.h2": "Mira la diferencia.",
-    "ba.p": "Arrastra la línea: a la izquierda, cómo estaba; a la derecha, cómo lo dejamos. Foto real de un trabajo.",
+    "ba.p": "Arrastra la línea en cada foto: a la izquierda, cómo estaba; a la derecha, cómo lo dejamos. Trabajos reales, sin retoques.",
     "ba.before": "Antes",
     "ba.after": "Después",
+    "vid.lead": "Y el trabajo en video:",
 
     "inc.eyebrow": "Cuarto por cuarto",
     "inc.h2": "Lo que se hace en cada espacio.",
@@ -253,9 +254,10 @@ window.I18N = {
 
     "ba.eyebrow": "Real work, no filters",
     "ba.h2": "See the difference.",
-    "ba.p": "Drag the line: on the left, how it was; on the right, how we left it. A real photo from a job.",
+    "ba.p": "Drag the line on each photo: on the left, how it was; on the right, how we left it. Real jobs, no retouching.",
     "ba.before": "Before",
     "ba.after": "After",
+    "vid.lead": "And the work on video:",
 
     "inc.eyebrow": "Room by room",
     "inc.h2": "What gets done in each space.",

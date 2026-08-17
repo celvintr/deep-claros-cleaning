@@ -252,20 +252,54 @@
   <div class="wrap">
     <p class="eyebrow" data-i18n="ba.eyebrow">Trabajo real, sin filtros</p>
     <h2 class="h2 h2--light" data-i18n="ba.h2">Mira la diferencia.</h2>
-    <p class="lede" data-i18n="ba.p">Arrastra la línea: a la izquierda, cómo estaba; a la derecha, cómo lo dejamos. Foto real de un trabajo.</p>
+    <p class="lede" data-i18n="ba.p">Arrastra la línea en cada foto: a la izquierda, cómo estaba; a la derecha, cómo lo dejamos. Trabajos reales, sin retoques.</p>
 
-    <div class="ba" id="ba">
-      <picture class="ba__base"><source srcset="assets/img/ba-after.webp" type="image/webp"><img src="assets/img/ba-after.jpg" alt="Cocina después de la limpieza de Deep Claros" width="1400" height="1000"></picture>
-      <div class="ba__before" aria-hidden="true">
-        <picture><source srcset="assets/img/ba-before.webp" type="image/webp"><img src="assets/img/ba-before.jpg" alt="" width="1400" height="1000"></picture>
+    <div class="bacar" id="bacar">
+      <div class="bacar__stage">
+
+        <div class="baslide is-active">
+          <picture class="ba__base"><source srcset="assets/img/ba1-after.webp" type="image/webp"><img src="assets/img/ba1-after.jpg" alt="Estufa después de la limpieza de Deep Claros" width="1400" height="1000"></picture>
+          <div class="ba__before" aria-hidden="true"><picture><source srcset="assets/img/ba1-before.webp" type="image/webp"><img src="assets/img/ba1-before.jpg" alt="" width="1400" height="1000"></picture></div>
+          <span class="ba__tag ba__tag--before" data-i18n="ba.before">Antes</span>
+          <span class="ba__tag ba__tag--after" data-i18n="ba.after">Después</span>
+          <button type="button" class="ba__grip" role="slider" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50" data-i18n-attr="aria-label:a11y.wipe"><span class="ba__bars" aria-hidden="true"><i></i><i></i></span></button>
+        </div>
+
+        <div class="baslide">
+          <picture class="ba__base"><source srcset="assets/img/ba2-after.webp" type="image/webp"><img src="assets/img/ba2-after.jpg" alt="Mostrador después de la limpieza de Deep Claros" width="1400" height="1000" loading="lazy"></picture>
+          <div class="ba__before" aria-hidden="true"><picture><source srcset="assets/img/ba2-before.webp" type="image/webp"><img src="assets/img/ba2-before.jpg" alt="" width="1400" height="1000" loading="lazy"></picture></div>
+          <span class="ba__tag ba__tag--before" data-i18n="ba.before">Antes</span>
+          <span class="ba__tag ba__tag--after" data-i18n="ba.after">Después</span>
+          <button type="button" class="ba__grip" role="slider" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50" data-i18n-attr="aria-label:a11y.wipe"><span class="ba__bars" aria-hidden="true"><i></i><i></i></span></button>
+        </div>
+
+        <div class="baslide">
+          <picture class="ba__base"><source srcset="assets/img/ba3-after.webp" type="image/webp"><img src="assets/img/ba3-after.jpg" alt="Área de escurridor después de la limpieza de Deep Claros" width="1400" height="1000" loading="lazy"></picture>
+          <div class="ba__before" aria-hidden="true"><picture><source srcset="assets/img/ba3-before.webp" type="image/webp"><img src="assets/img/ba3-before.jpg" alt="" width="1400" height="1000" loading="lazy"></picture></div>
+          <span class="ba__tag ba__tag--before" data-i18n="ba.before">Antes</span>
+          <span class="ba__tag ba__tag--after" data-i18n="ba.after">Después</span>
+          <button type="button" class="ba__grip" role="slider" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50" data-i18n-attr="aria-label:a11y.wipe"><span class="ba__bars" aria-hidden="true"><i></i><i></i></span></button>
+        </div>
+
       </div>
-      <span class="ba__tag ba__tag--before" data-i18n="ba.before">Antes</span>
-      <span class="ba__tag ba__tag--after" data-i18n="ba.after">Después</span>
-      <button type="button" class="ba__grip" id="baGrip" role="slider"
-              aria-valuemin="0" aria-valuemax="100" aria-valuenow="50"
-              data-i18n-attr="aria-label:a11y.wipe">
-        <span class="ba__bars" aria-hidden="true"><i></i><i></i></span>
-      </button>
+
+      <button type="button" class="bacar__arrow bacar__arrow--prev" data-ba="prev" data-i18n-attr="aria-label:a11y.prev"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg></button>
+      <button type="button" class="bacar__arrow bacar__arrow--next" data-ba="next" data-i18n-attr="aria-label:a11y.next"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg></button>
+      <div class="bacar__dots" id="baDots" role="tablist" data-i18n-attr="aria-label:a11y.slides"></div>
+    </div>
+
+    <p class="vids__lead" data-i18n="vid.lead">Y el trabajo en video:</p>
+    <div class="vids">
+      <figure class="vid">
+        <video controls preload="none" playsinline poster="assets/img/vposter1.jpg">
+          <source src="assets/video/v1.mp4" type="video/mp4">
+        </video>
+      </figure>
+      <figure class="vid">
+        <video controls preload="none" playsinline poster="assets/img/vposter2.jpg">
+          <source src="assets/video/v2.mp4" type="video/mp4">
+        </video>
+      </figure>
     </div>
   </div>
 </section>
