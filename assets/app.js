@@ -105,7 +105,7 @@
   });
 
   // en móvil el corte es vertical: dejamos más limpio para no partir los botones
-  var restPos = function () { return window.innerWidth <= 720 ? 62 : 46; };
+  var restPos = function () { return window.innerWidth <= 720 ? 60 : 40; };
 
   // pasada de demostración al cargar: la superficie se limpia sola una vez
   function demo() {
