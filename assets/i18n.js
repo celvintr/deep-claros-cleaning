@@ -5,7 +5,7 @@ window.I18N = {
   fallback: "en",
 
   es: {
-    "meta.desc": "Limpieza profunda, regular, de mudanza y post-construcción en todo Maryland: Silver Spring, Rockville, Gaithersburg y más. Con licencia y seguro. Estimados gratis: (240) 408-6532.",
+    "meta.desc": "Limpieza residencial y comercial en todo Maryland: profunda, regular, de mudanza y post-construcción. Silver Spring, Rockville, Gaithersburg y más. Con licencia y seguro. Estimados gratis: (240) 408-6532.",
     "a11y.skip": "Saltar al contenido",
     "a11y.lang": "Idioma",
     "a11y.wipe": "Arrastra para limpiar la superficie",
@@ -27,7 +27,7 @@ window.I18N = {
 
     "hero.eyebrow": "Con licencia y seguro · Estimados gratis · Todo Maryland",
     "hero.h1": "Una casa como el día que te dieron las llaves.",
-    "hero.p": "Limpieza profunda, regular, de mudanza y post-construcción para casas, townhouses, apartamentos y oficinas.",
+    "hero.p": "Limpieza residencial y comercial en todo Maryland: profunda, regular, de mudanza y post-construcción para casas, apartamentos, oficinas y negocios.",
     "hero.drag": "Arrastra para ver la diferencia",
     "hero.scroll": "Servicios",
 
@@ -72,8 +72,8 @@ window.I18N = {
     "svc.post.w": "Después de la remodelación, cuando el polvo ya se asentó.",
     "svc.post.d": "El polvo de drywall llega a todos lados. Nosotros también: residuos de pintura, etiquetas, viruta y tres pasadas hasta que no queda película.",
     "svc.maint.t": "Mantenimiento de propiedades",
-    "svc.maint.w": "Para dueños y administradores con varias unidades.",
-    "svc.maint.d": "Rotación entre inquilinos, áreas comunes y oficinas, con horario fijo y una sola factura.",
+    "svc.maint.w": "Para dueños, administradores y negocios.",
+    "svc.maint.d": "Oficinas, locales comerciales y edificios: áreas comunes y rotación entre inquilinos, con horario fijo y una sola factura.",
     "svc.ask.t": "¿No sabes cuál necesitas?",
     "svc.ask.d": "Cuéntanos cómo está el lugar y te decimos cuál corresponde. El estimado no cuesta nada.",
 
@@ -153,6 +153,7 @@ window.I18N = {
     "f.type.town": "Townhouse",
     "f.type.apt": "Apartamento",
     "f.type.office": "Oficina",
+    "f.type.commercial": "Local comercial / negocio",
     "f.svc": "Servicio",
     "f.svc.unsure": "No estoy seguro",
     "f.size": "Cuartos y baños",
@@ -178,7 +179,7 @@ window.I18N = {
   },
 
   en: {
-    "meta.desc": "Deep, regular, move-in/move-out and post-construction cleaning across Maryland: Silver Spring, Rockville, Gaithersburg and more. Licensed and insured. Free estimates: (240) 408-6532.",
+    "meta.desc": "Residential and commercial cleaning across Maryland: deep, regular, move-in/move-out and post-construction. Silver Spring, Rockville, Gaithersburg and more. Licensed and insured. Free estimates: (240) 408-6532.",
     "a11y.skip": "Skip to content",
     "a11y.lang": "Language",
     "a11y.wipe": "Drag to clean the surface",
@@ -200,7 +201,7 @@ window.I18N = {
 
     "hero.eyebrow": "Licensed and insured · Free estimates · All of Maryland",
     "hero.h1": "A home that looks like the day you got the keys.",
-    "hero.p": "Deep, regular, move-in/move-out and post-construction cleaning for houses, townhouses, apartments and offices.",
+    "hero.p": "Residential and commercial cleaning across Maryland: deep, regular, move-in/move-out and post-construction for homes, apartments, offices and businesses.",
     "hero.drag": "Drag to see the difference",
     "hero.scroll": "Services",
 
@@ -245,8 +246,8 @@ window.I18N = {
     "svc.post.w": "After the remodel, once the dust has settled.",
     "svc.post.d": "Drywall dust gets everywhere. So do we: paint spots, stickers, shavings, and three passes until no film is left.",
     "svc.maint.t": "Property maintenance",
-    "svc.maint.w": "For owners and managers running several units.",
-    "svc.maint.d": "Tenant turnovers, common areas and offices, on a fixed schedule and a single invoice.",
+    "svc.maint.w": "For owners, managers and businesses.",
+    "svc.maint.d": "Offices, commercial spaces and buildings: common areas and tenant turnovers, on a fixed schedule and a single invoice.",
     "svc.ask.t": "Not sure which one you need?",
     "svc.ask.d": "Tell us the condition of the place and we'll tell you which service fits. The estimate costs nothing.",
 
@@ -326,6 +327,7 @@ window.I18N = {
     "f.type.town": "Townhouse",
     "f.type.apt": "Apartment",
     "f.type.office": "Office",
+    "f.type.commercial": "Commercial / business",
     "f.svc": "Service",
     "f.svc.unsure": "Not sure yet",
     "f.size": "Bedrooms and bathrooms",
