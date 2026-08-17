@@ -246,10 +246,8 @@ body.no-scroll{overflow:hidden}
 }
 .ba__base,.ba__before,.ba img{position:absolute;inset:0;width:100%;height:100%}
 .ba img{object-fit:cover;object-position:center 45%;display:block}
-/* capa "antes": misma foto, recortada y envejecida */
+/* capa "antes": foto real del antes, recortada por el arrastre */
 .ba__before{clip-path:inset(0 calc(100% - var(--wipe,50%)) 0 0)}
-.ba__before img{filter:grayscale(.55) sepia(.45) brightness(.82) contrast(.92)}
-.ba__before::after{content:"";position:absolute;inset:0;background-image:var(--grain);opacity:.5;mix-blend-mode:multiply}
 
 .ba__tag{
   position:absolute;top:16px;z-index:3;padding:6px 14px;border-radius:999px;

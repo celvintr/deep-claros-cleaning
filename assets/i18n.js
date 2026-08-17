@@ -77,9 +77,9 @@ window.I18N = {
     "svc.ask.t": "¿No sabes cuál necesitas?",
     "svc.ask.d": "Cuéntanos cómo está el lugar y te decimos cuál corresponde. El estimado no cuesta nada.",
 
-    "ba.eyebrow": "La prueba está en el piso",
+    "ba.eyebrow": "Trabajo real, sin filtros",
     "ba.h2": "Mira la diferencia.",
-    "ba.p": "Arrastra la línea: a un lado, el polvo y el desgaste; al otro, la misma habitación después de nosotros.",
+    "ba.p": "Arrastra la línea: a la izquierda, cómo estaba; a la derecha, cómo lo dejamos. Foto real de un trabajo.",
     "ba.before": "Antes",
     "ba.after": "Después",
 
@@ -251,9 +251,9 @@ window.I18N = {
     "svc.ask.t": "Not sure which one you need?",
     "svc.ask.d": "Tell us the condition of the place and we'll tell you which service fits. The estimate costs nothing.",
 
-    "ba.eyebrow": "The proof is on the floor",
+    "ba.eyebrow": "Real work, no filters",
     "ba.h2": "See the difference.",
-    "ba.p": "Drag the line: on one side the dust and wear; on the other, the same room after us.",
+    "ba.p": "Drag the line: on the left, how it was; on the right, how we left it. A real photo from a job.",
     "ba.before": "Before",
     "ba.after": "After",
 
