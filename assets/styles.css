@@ -112,6 +112,69 @@ button,input,select,textarea{font:inherit;color:inherit}
 .bar__telLabel{font-size:.6rem;letter-spacing:.18em;text-transform:uppercase;color:var(--brass)}
 .bar__tel strong{font-size:.95rem;color:var(--barfg);font-variant-numeric:tabular-nums;transition:color .35s}
 
+/* ── hamburguesa (solo donde se oculta la nav) ───────── */
+.burger{
+  display:none;width:44px;height:44px;padding:0;border:0;background:none;cursor:pointer;
+  align-items:center;justify-content:center;
+}
+.burger__box{position:relative;width:24px;height:16px}
+.burger__box i{
+  position:absolute;left:0;width:100%;height:2px;border-radius:2px;background:var(--barfg);
+  transition:transform .3s ease,opacity .2s ease,top .3s ease,background .35s;
+}
+.burger__box i:nth-child(1){top:0}
+.burger__box i:nth-child(2){top:7px}
+.burger__box i:nth-child(3){top:14px}
+.burger[aria-expanded="true"] .burger__box i{background:var(--marble)}
+.burger[aria-expanded="true"] .burger__box i:nth-child(1){top:7px;transform:rotate(45deg)}
+.burger[aria-expanded="true"] .burger__box i:nth-child(2){opacity:0}
+.burger[aria-expanded="true"] .burger__box i:nth-child(3){top:7px;transform:rotate(-45deg)}
+
+/* ── panel deslizante ────────────────────────────────── */
+.drawer{position:fixed;inset:0;z-index:60}
+.drawer__scrim{
+  position:absolute;inset:0;background:rgba(20,26,31,.55);
+  opacity:0;transition:opacity .35s ease;
+}
+.drawer__panel{
+  position:absolute;top:0;right:0;bottom:0;width:min(86vw,360px);
+  background:linear-gradient(200deg,#1D262D 0%,#141A1F 70%);
+  padding:calc(24px + env(safe-area-inset-top)) 28px calc(28px + env(safe-area-inset-bottom));
+  display:flex;flex-direction:column;
+  transform:translateX(100%);transition:transform .38s cubic-bezier(.22,.7,.25,1);
+  box-shadow:-24px 0 60px -30px rgba(0,0,0,.7);overflow-y:auto;
+}
+.drawer__panel::before{
+  content:"";position:absolute;inset:0;background-image:var(--grain);opacity:.05;pointer-events:none;
+}
+.drawer.is-open .drawer__scrim{opacity:1}
+.drawer.is-open .drawer__panel{transform:none}
+
+.drawer__x{
+  align-self:flex-end;width:42px;height:42px;border:1px solid rgba(224,190,130,.4);
+  background:none;border-radius:50%;cursor:pointer;position:relative;flex:0 0 auto;
+}
+.drawer__x span,.drawer__x span::after{position:absolute;left:11px;top:20px;width:18px;height:2px;background:var(--brass-lt);border-radius:2px}
+.drawer__x span{transform:rotate(45deg)}
+.drawer__x span::after{content:"";left:0;top:0;transform:rotate(-90deg)}
+
+.drawer__nav{display:flex;flex-direction:column;margin:22px 0 auto}
+.drawer__nav a{
+  font-family:var(--f-disp);font-weight:700;font-size:1.6rem;letter-spacing:-.01em;
+  color:var(--marble);text-decoration:none;padding:15px 0;
+  border-bottom:1px solid rgba(224,190,130,.16);transition:color .2s,padding-left .2s;
+}
+.drawer__nav a:hover,.drawer__nav a:focus-visible{color:var(--brass-lt);padding-left:6px}
+
+.drawer__cta{display:flex;flex-direction:column;gap:12px;margin-top:26px}
+.drawer__cta .btn{width:100%}
+.drawer__cta .btn--ghost{border-color:rgba(224,190,130,.5);color:var(--brass-lt)}
+.drawer__cta .btn--ghost:hover{border-color:var(--brass-lt);background:rgba(224,190,130,.08)}
+.drawer__mail{margin:20px 0 0;font-size:.82rem;word-break:break-word}
+.drawer__mail a{color:var(--grout);text-decoration-color:var(--brass);text-underline-offset:3px}
+
+body.no-scroll{overflow:hidden}
+
 /* ═══ HERO: la losa que se limpia ═══════════════════════ */
 .hero{position:relative;min-height:100svh;isolation:isolate;overflow:hidden}
 
@@ -231,6 +294,19 @@ button,input,select,textarea{font:inherit;color:inherit}
 .btn--ink:hover{background:var(--ink-2)}
 .ico{width:19px;height:19px;fill:currentColor;flex:0 0 auto}
 
+/* ── franja de confianza ─────────────────────────────── */
+.trust{background:var(--ink);color:var(--marble);padding:clamp(28px,4vw,44px) 0;position:relative}
+.trust::before{content:"";position:absolute;inset:0;background-image:var(--grain);opacity:.05;pointer-events:none}
+.trust__list{
+  position:relative;list-style:none;margin:0;padding-inline:var(--pad);
+  display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(18px,3vw,40px);
+}
+.trust__i{display:grid;grid-template-columns:auto 1fr;grid-template-rows:auto auto;column-gap:14px;align-items:center}
+.trust__ico{grid-row:1/3;width:34px;height:34px;fill:none;stroke:var(--brass-lt);stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+.trust__ico .chk{stroke:var(--brass)}
+.trust__t{font-family:var(--f-disp);font-weight:700;font-size:1.06rem;line-height:1.1;align-self:end}
+.trust__s{font-size:.8rem;color:#9AA0A4;align-self:start;margin-top:2px}
+
 /* ── secciones ───────────────────────────────────────── */
 .sec{padding:clamp(64px,9vw,124px) 0;position:relative}
 .sec--light{background:var(--paper)}
@@ -279,9 +355,20 @@ button,input,select,textarea{font:inherit;color:inherit}
 .acc__x::before{top:6.5px;left:0;width:15px;height:2px}
 .acc__x::after{left:6.5px;top:0;width:2px;height:15px}
 .acc__b[aria-expanded="true"] .acc__x::after{transform:rotate(90deg);opacity:0}
-.acc__p{display:grid;grid-template-rows:0fr;transition:grid-template-rows .38s ease}
-.acc__b[aria-expanded="true"]+.acc__p{grid-template-rows:1fr}
+/* minmax(0,…) fuerza el mínimo del track a 0; con solo 0fr el track no baja
+   del padding del hijo y filtra una línea al cerrar. */
+.acc__p{display:grid;grid-template-rows:minmax(0,0fr);overflow:hidden;transition:grid-template-rows .38s ease}
+.acc__b[aria-expanded="true"]+.acc__p{grid-template-rows:minmax(0,1fr)}
 .acc__p>*{overflow:hidden;min-height:0}
+.acc__a{margin:0;padding:2px 0 24px;font-size:.96rem;color:#B9BEC2;max-width:52ch}
+
+/* variante clara: FAQ sobre mármol */
+.acc--light{border-top-color:rgba(20,26,31,.16)}
+.acc--light .acc__i{border-bottom-color:rgba(20,26,31,.16)}
+.acc--light .acc__b{color:var(--ink)}
+.acc--light .acc__b:hover{color:var(--brass)}
+.acc--light .acc__a{color:#4A5257}
+
 .ticks{list-style:none;margin:0;padding:0 0 24px}
 .ticks li{padding:7px 0 7px 26px;position:relative;font-size:.94rem;color:#B9BEC2}
 .ticks li::before{content:"";position:absolute;left:2px;top:14px;width:9px;height:5px;border-left:1.6px solid var(--brass);border-bottom:1.6px solid var(--brass);transform:rotate(-45deg)}
@@ -380,12 +467,18 @@ button,input,select,textarea{font:inherit;color:inherit}
 @media (max-width:1080px){
   .cards{grid-template-columns:repeat(2,1fr)}
   .nav{display:none}
+  .burger{display:inline-flex}
+  /* sin los links, el bloque de acciones debe irse a la esquina derecha.
+     Especificidad igual a .nav+.bar__act para poder ganarle. */
+  .nav+.bar__act{margin-left:auto}
+  .burger{margin-right:-10px}   /* alinear el ícono al borde óptico */
 }
 @media (max-width:900px){
   .wrap--split,.wrap--form{grid-template-columns:1fr}
   .steps{grid-template-columns:1fr;gap:34px}
   .step{padding-top:20px}
   .hero__in{padding-top:104px;padding-bottom:170px}
+  .trust__list{grid-template-columns:repeat(2,1fr);gap:22px}
 }
 @media (max-width:720px){
   .dock{display:flex}

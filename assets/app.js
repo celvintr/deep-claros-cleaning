@@ -123,6 +123,56 @@
   }
   demo();
 
+  /* ═══ 2b. Menú móvil (drawer) ═════════════════════════ */
+  var burger = $("#burger");
+  var drawer = $("#drawer");
+  if (burger && drawer) {
+    var panel = $(".drawer__panel", drawer);
+    var closeTimer = null;
+
+    var openDrawer = function () {
+      if (closeTimer) { clearTimeout(closeTimer); closeTimer = null; }
+      drawer.hidden = false;
+      document.body.classList.add("no-scroll");
+      // forzar reflow para que la transición corra desde translateX(100%)
+      void drawer.offsetWidth;
+      drawer.classList.add("is-open");
+      burger.setAttribute("aria-expanded", "true");
+      var first = $(".drawer__nav a", drawer);
+      if (first) first.focus();
+    };
+
+    var closeDrawer = function () {
+      drawer.classList.remove("is-open");
+      burger.setAttribute("aria-expanded", "false");
+      document.body.classList.remove("no-scroll");
+      closeTimer = setTimeout(function () { drawer.hidden = true; }, reduce ? 0 : 400);
+      burger.focus();
+    };
+
+    burger.addEventListener("click", function () {
+      if (drawer.classList.contains("is-open")) closeDrawer(); else openDrawer();
+    });
+
+    drawer.addEventListener("click", function (e) {
+      if (e.target.closest("[data-close]")) closeDrawer();
+    });
+
+    document.addEventListener("keydown", function (e) {
+      if (e.key === "Escape" && drawer.classList.contains("is-open")) closeDrawer();
+    });
+
+    // el foco no debe escapar del panel mientras está abierto
+    drawer.addEventListener("keydown", function (e) {
+      if (e.key !== "Tab" || !drawer.classList.contains("is-open")) return;
+      var f = $$("a[href], button:not([disabled])", panel);
+      if (!f.length) return;
+      var first = f[0], last = f[f.length - 1];
+      if (e.shiftKey && document.activeElement === first) { last.focus(); e.preventDefault(); }
+      else if (!e.shiftKey && document.activeElement === last) { first.focus(); e.preventDefault(); }
+    });
+  }
+
   /* ═══ 3. Acordeón ═════════════════════════════════════ */
   $$(".acc__b").forEach(function (b) {
     b.addEventListener("click", function () {

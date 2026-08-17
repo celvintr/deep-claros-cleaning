@@ -45,9 +45,34 @@
         <span class="bar__telLabel" data-i18n="cta.callShort">Llamar</span>
         <strong>(240) 408-6532</strong>
       </a>
+      <button type="button" class="burger" id="burger" aria-expanded="false" aria-controls="drawer" data-i18n-attr="aria-label:a11y.menu">
+        <span class="burger__box" aria-hidden="true"><i></i><i></i><i></i></span>
+      </button>
     </div>
   </div>
 </header>
+
+<!-- ══ MENÚ MÓVIL (drawer) ══ -->
+<div class="drawer" id="drawer" hidden>
+  <div class="drawer__scrim" data-close></div>
+  <aside class="drawer__panel" role="dialog" aria-modal="true" data-i18n-attr="aria-label:a11y.menu">
+    <button type="button" class="drawer__x" data-close data-i18n-attr="aria-label:a11y.close">
+      <span aria-hidden="true"></span>
+    </button>
+    <nav class="drawer__nav" aria-label="Móvil">
+      <a href="#services" data-close data-i18n="nav.services">Servicios</a>
+      <a href="#included" data-close data-i18n="nav.included">Qué incluye</a>
+      <a href="#areas" data-close data-i18n="nav.areas">Zonas</a>
+      <a href="#how" data-close data-i18n="nav.how">Cómo funciona</a>
+      <a href="#estimate" data-close data-i18n="nav.estimate">Estimado</a>
+    </nav>
+    <div class="drawer__cta">
+      <a class="btn btn--gold" href="tel:+12404086532" data-i18n="cta.call">Llamar ahora</a>
+      <a class="btn btn--ghost" href="https://wa.me/12404086532" target="_blank" rel="noopener" data-close>WhatsApp</a>
+    </div>
+    <p class="drawer__mail"><a href="mailto:deep.claroscleaningservices@gmail.com">deep.claroscleaningservices@gmail.com</a></p>
+  </aside>
+</div>
 
 <main id="main">
 
@@ -99,6 +124,32 @@
   </div>
 
   <p class="hero__scroll" aria-hidden="true"><span data-i18n="hero.scroll">Servicios</span></p>
+</section>
+
+<!-- ══ FRANJA DE CONFIANZA ══ -->
+<section class="trust" aria-label="Por qué confiar">
+  <ul class="trust__list wrap">
+    <li class="trust__i">
+      <svg class="trust__ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2 4 5v6c0 5 3.4 8.5 8 11 4.6-2.5 8-6 8-11V5l-8-3Z"/><path d="m8.5 12 2.3 2.3L15.5 10" class="chk"/></svg>
+      <span class="trust__t" data-i18n="trust.1.t">Con licencia y seguro</span>
+      <span class="trust__s" data-i18n="trust.1.s">Respondemos por el trabajo</span>
+    </li>
+    <li class="trust__i">
+      <svg class="trust__ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h16v14H4z"/><path d="M4 9h16M8 3v4M16 3v4" class="chk"/></svg>
+      <span class="trust__t" data-i18n="trust.2.t">Estimados gratis</span>
+      <span class="trust__s" data-i18n="trust.2.s">Precio cerrado, sin sorpresas</span>
+    </li>
+    <li class="trust__i">
+      <svg class="trust__ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 21h18M6 21V8l6-4 6 4v13"/><path d="M10 21v-6h4v6" class="chk"/></svg>
+      <span class="trust__t" data-i18n="trust.3.t">Equipo y materiales</span>
+      <span class="trust__s" data-i18n="trust.3.s">Llegamos listos a trabajar</span>
+    </li>
+    <li class="trust__i">
+      <svg class="trust__ico" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.5 2.5 15 0 18M12 3c-2.5 2.5-2.5 15 0 18" class="chk"/></svg>
+      <span class="trust__t" data-i18n="trust.4.t">Español e inglés</span>
+      <span class="trust__s" data-i18n="trust.4.s">Te atendemos en tu idioma</span>
+    </li>
+  </ul>
 </section>
 
 <!-- ══ SERVICIOS ══ -->
@@ -274,6 +325,57 @@
         <li data-i18n="about.b3">Se atiende en español e inglés</li>
         <li data-i18n="about.b4">Equipo y materiales incluidos</li>
       </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ══ PREGUNTAS FRECUENTES ══ -->
+<section class="sec sec--marble" id="faq">
+  <div class="wrap wrap--split">
+    <div class="split__l">
+      <p class="eyebrow eyebrow--dark" data-i18n="faq.eyebrow">Antes de llamar</p>
+      <h2 class="h2" data-i18n="faq.h2">Lo que casi todos preguntan.</h2>
+      <p class="lede lede--dark" data-i18n="faq.p">Si tu duda no está aquí, escríbenos por WhatsApp y te respondemos el mismo día.</p>
+    </div>
+    <div class="split__r">
+      <div class="acc acc--light">
+        <div class="acc__i">
+          <button type="button" class="acc__b" aria-expanded="true">
+            <span data-i18n="faq.1.q">¿Tengo que estar en casa?</span><span class="acc__x" aria-hidden="true"></span>
+          </button>
+          <div class="acc__p"><p class="acc__a" data-i18n="faq.1.a">No es necesario. Muchos clientes nos dejan entrar y salir; coordinamos el acceso como te quede cómodo. Si prefieres estar, también está bien.</p></div>
+        </div>
+        <div class="acc__i">
+          <button type="button" class="acc__b" aria-expanded="false">
+            <span data-i18n="faq.2.q">¿Llevan sus productos y equipo?</span><span class="acc__x" aria-hidden="true"></span>
+          </button>
+          <div class="acc__p"><p class="acc__a" data-i18n="faq.2.a">Sí, llegamos con todo incluido. Si prefieres que usemos un producto específico por alergias o superficies delicadas, solo dinos.</p></div>
+        </div>
+        <div class="acc__i">
+          <button type="button" class="acc__b" aria-expanded="false">
+            <span data-i18n="faq.3.q">¿Cómo calculan el precio?</span><span class="acc__x" aria-hidden="true"></span>
+          </button>
+          <div class="acc__p"><p class="acc__a" data-i18n="faq.3.a">Según el tamaño del lugar, el estado en que está y el tipo de limpieza. Te damos un precio cerrado en el estimado, antes de empezar.</p></div>
+        </div>
+        <div class="acc__i">
+          <button type="button" class="acc__b" aria-expanded="false">
+            <span data-i18n="faq.4.q">Tengo mascotas, ¿hay problema?</span><span class="acc__x" aria-hidden="true"></span>
+          </button>
+          <div class="acc__p"><p class="acc__a" data-i18n="faq.4.a">Ninguno. Avísanos qué mascotas hay para llegar preparados y cuidar que no se salgan mientras entramos y salimos.</p></div>
+        </div>
+        <div class="acc__i">
+          <button type="button" class="acc__b" aria-expanded="false">
+            <span data-i18n="faq.5.q">¿Y si algo no quedó bien?</span><span class="acc__x" aria-hidden="true"></span>
+          </button>
+          <div class="acc__p"><p class="acc__a" data-i18n="faq.5.a">Antes de irnos recorres el lugar con nosotros. Si algo falta, se corrige en el momento. Esa revisión es parte del servicio.</p></div>
+        </div>
+        <div class="acc__i">
+          <button type="button" class="acc__b" aria-expanded="false">
+            <span data-i18n="faq.6.q">¿Hacen limpieza recurrente?</span><span class="acc__x" aria-hidden="true"></span>
+          </button>
+          <div class="acc__p"><p class="acc__a" data-i18n="faq.6.a">Sí: semanal, quincenal o mensual, con el mismo equipo cada visita. Es la forma más económica de mantener el lugar.</p></div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
