@@ -75,7 +75,12 @@
     var dots = $$("button", dotsBox);
 
     function paint() {
-      slides.forEach(function (s, i) { s.classList.toggle("is-active", i === idx); });
+      slides.forEach(function (s, i) {
+        var on = i === idx;
+        s.classList.toggle("is-active", on);
+        var v = s.querySelector(".slide__video");
+        if (v) { if (on && !reduce) { var p = v.play(); if (p && p.catch) p.catch(function () {}); } else { v.pause(); } }
+      });
       dots.forEach(function (d, i) { d.setAttribute("aria-selected", String(i === idx)); });
     }
     function go(n, manual) {
