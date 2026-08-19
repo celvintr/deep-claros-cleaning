@@ -132,16 +132,18 @@
 <!-- ══ HERO (slider) ══ -->
 <section class="hero" id="top">
   <div class="hero__slider" id="slider" aria-hidden="true">
-    <div class="slide is-active">
-      <picture><source srcset="assets/img/hero-1.webp" type="image/webp"><img src="assets/img/hero-1.jpg" alt="" fetchpriority="high" width="1600" height="1000"></picture>
+    <div class="slide is-active slide--video">
+      <video class="slide__video" muted loop playsinline preload="auto" poster="assets/img/hero-sofa-poster.jpg">
+        <source src="assets/video/hero-sofa.mp4" type="video/mp4">
+      </video>
+    </div>
+    <div class="slide">
+      <picture><source srcset="assets/img/hero-4.webp" type="image/webp"><img src="assets/img/hero-4.jpg" alt="" loading="lazy" width="1600" height="1000"></picture>
     </div>
     <div class="slide slide--video">
       <video class="slide__video" muted loop playsinline preload="none" poster="assets/img/hero-vid1-poster.jpg">
         <source src="assets/video/hero-vid1.mp4" type="video/mp4">
       </video>
-    </div>
-    <div class="slide">
-      <picture><source srcset="assets/img/hero-4.webp" type="image/webp"><img src="assets/img/hero-4.jpg" alt="" loading="lazy" width="1600" height="1000"></picture>
     </div>
   </div>
   <div class="hero__scrim" aria-hidden="true"></div>
